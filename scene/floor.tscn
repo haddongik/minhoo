@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5jp0f43ku6g4"]
+[gd_scene load_steps=3 format=3 uid="uid://c5jp0f43ku6g4"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_on5r1"]
+[ext_resource type="Shader" path="res://shader/floor.gdshader" id="1_4m7fr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqiuk"]
+shader = ExtResource("1_4m7fr")
 
 [node name="floor" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(106.25, 21.75)
-scale = Vector2(213.5, 44.5)
-texture = SubResource("CanvasTexture_on5r1")
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_vqiuk")
+color = Color(0.82462, 0.954046, 0.302882, 1)
+polygon = PackedVector2Array(0, 0, 0, 34, 196, 34, 196, 0)

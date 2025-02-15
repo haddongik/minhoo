@@ -28,3 +28,4 @@ frame_progress = 0.208333
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -150)
