@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr86l3biube4q"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_vc21u"]
+[ext_resource type="PackedScene" uid="uid://c5jp0f43ku6g4" path="res://scene/floor.tscn" id="2_lq4qw"]
+[ext_resource type="PackedScene" uid="uid://4o6e2npnjkc" path="res://scene/character.tscn" id="3_1ti1u"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vc21u")
+height = 15
+pack_player = ExtResource("3_1ti1u")
+pack_tile = ExtResource("2_lq4qw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "점수: 0"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -261.0
+offset_right = 261.0
+offset_bottom = 41.0
+grow_horizontal = 2
+
+[node name="GameOver" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -53.0
+offset_right = 151.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "게임오버"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 30.5
+offset_right = 61.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "재시작"
+
+[connection signal="pressed" from="CanvasLayer/Restart" to="." method="_on_restart_pressed"]

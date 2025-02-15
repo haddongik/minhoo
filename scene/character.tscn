@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://4o6e2npnjkc"]
+
+[ext_resource type="Texture2D" uid="uid://dsgwbw3wockd7" path="res://asset/alienGreen_stand.png" id="1_r5u2w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2epc"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r5u2w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b2epc")
+animation = &"new_animation"
+frame_progress = 0.208333
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
