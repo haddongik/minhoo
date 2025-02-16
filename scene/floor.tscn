@@ -4,6 +4,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vqiuk"]
 shader = ExtResource("1_4m7fr")
+shader_parameter/glow_color = Color(0.947696, 0.830174, 0.129076, 1)
+shader_parameter/glow_intensity = 2.2
+shader_parameter/glow_radius = 5.0
+shader_parameter/glow_softness = 0.5
 
 [node name="floor" type="Node2D"]
 

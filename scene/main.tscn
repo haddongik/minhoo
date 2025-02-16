@@ -1,13 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr86l3biube4q"]
+[gd_scene load_steps=9 format=3 uid="uid://dr86l3biube4q"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vc21u"]
 [ext_resource type="PackedScene" uid="uid://c5jp0f43ku6g4" path="res://scene/floor.tscn" id="2_lq4qw"]
 [ext_resource type="PackedScene" uid="uid://4o6e2npnjkc" path="res://scene/character.tscn" id="3_1ti1u"]
 [ext_resource type="PackedScene" uid="uid://djlg7arl0xx3u" path="res://scene/bg.tscn" id="4_rfmkv"]
 [ext_resource type="FontFile" uid="uid://cnoi483wln05y" path="res://font/retro.ttf" id="5_pgmke"]
+[ext_resource type="AudioStream" uid="uid://c00gi5vn05nb5" path="res://bgm/PlumR-8bit.mp3" id="6_rt05a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yaxl"]
 bg_color = Color(0.51656, 0.655487, 0.315268, 1)
+
+[sub_resource type="Environment" id="Environment_ufatx"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.3
+glow_blend_mode = 0
+adjustment_enabled = true
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vc21u")
@@ -78,5 +86,12 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_pgmke")
 theme_override_font_sizes/font_size = 30
 text = "RESTART"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ufatx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rt05a")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Restart" to="." method="_on_restart_pressed"]

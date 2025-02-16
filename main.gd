@@ -34,10 +34,11 @@ func _ready() -> void:
 	_update_tiles()
 	_update_score()
 	_update_player()
-	
+	_restart_audio()
+		
 	$CanvasLayer/GameOver.visible = false
 	$CanvasLayer/Restart.visible = false
-
+	
 func _process(delta: float) -> void:
 	if gameover:
 		pass
@@ -125,6 +126,10 @@ func clear_all():
 			remove_child(tile)
 			tile.queue_free()
 	floor_tiles.clear()  # 배열 비우기
+
+func _restart_audio() -> void:
+	$AudioStreamPlayer.stop()
+	$AudioStreamPlayer.play(0.0)
 	
 func _on_restart_pressed() -> void:
 	gameover = false
