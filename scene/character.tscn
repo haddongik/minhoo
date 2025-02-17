@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://4o6e2npnjkc"]
+[gd_scene load_steps=4 format=3 uid="uid://4o6e2npnjkc"]
 
-[ext_resource type="Texture2D" uid="uid://dsgwbw3wockd7" path="res://asset/alienGreen_stand.png" id="1_r5u2w"]
+[ext_resource type="PackedScene" uid="uid://dxydb83es0lk2" path="res://scene/ghost.tscn" id="1_h7sfh"]
+[ext_resource type="Script" path="res://scene/character.gd" id="1_ysily"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b2epc"]
 animations = [{
@@ -16,9 +17,10 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ysily")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_r5u2w")
+[node name="Ghost" parent="." instance=ExtResource("1_h7sfh")]
+unique_name_in_owner = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b2epc")

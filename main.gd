@@ -84,6 +84,8 @@ func _move_step(next:int):
 		score += 1
 		floor_queue.pop_front()
 		
+		player.test_call(next)
+		
 		_make_floor()
 		_update_tiles()
 		_update_player()
